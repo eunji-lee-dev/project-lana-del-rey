@@ -1,0 +1,91 @@
+@import "common";
+
+#body__container {
+  background-color: $blue-dark-color;
+  text-align: center;
+  height: 100%;
+}
+
+//main section
+section {
+  padding: $padding * 3;
+  width: 70%;
+  margin: 0 auto;
+
+  h2 {
+    font-size: $font-large + 20;
+    color: $white-color;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin-top: $margin * 5;
+    margin-bottom: $margin * 5;
+
+  }
+  img:first-of-type {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .row {
+    .col-sm-6 .card {
+      margin: $margin * 2;
+      background-color: transparent;
+      color: $white-color;
+      .card-body  {
+        .card-text {
+          font-family: "Oswald", sans-serif;
+          color: $grey-card-color;
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        .card-title {
+          font-family: "Oswald", sans-serif;
+        }
+        .btn_cta {
+          font-family: brother-xl, sans-serif;
+          font-style: normal;
+          font-weight: 200;
+          border: none;
+          font-size: $font-small;
+          text-align: center;
+          background-color: $red-color;
+          color: $white-color;
+          margin: $margin;
+          padding-left: $padding * 2;
+          padding-right: $padding * 2;
+          border-radius: 40px;
+          img:nth-child(2) {
+            margin-right: $margin;
+            width: 35px;
+          }
+          &:hover {
+            background-color: #de3b41;
+          }
+        }
+
+      }
+    }
+  }
+
+  img {
+    width: 50%;
+    margin: $margin * 5;
+  }
+
+}
+
+// footer
+footer {
+  display: flex;
+  justify-content: flex-end;
+  height: 20%;
+  background-color: $grey-footer-color;
+  padding: $padding;
+
+  .footer__socialMedia {
+    a img {
+      width: 25px;
+      margin: $margin;
+    }
+  }
+}

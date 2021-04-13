@@ -1,0 +1,36 @@
+@import "common";
+@media (min-width: 768px) and (max-width: 1024px) {
+  .second {
+    h2 {
+      font-size: $font-large + 10
+    }
+
+    p,
+    .second__newAlbum .left span {
+      font-size: $font-medium - 5;
+    }
+
+  }
+
+  .third {
+    .btn_cta {
+      font-size: $font-medium - 5;
+      margin: $margin * 3;
+      padding: $padding * 2;
+      border-radius: 40px;
+
+      img {
+        margin-right: $margin;
+        width: 30px;
+      }
+    }
+  }
+
+  footer {
+    .footer__socialMedia {
+      a img {
+        width: 20px;
+      }
+    }
+  }
+}

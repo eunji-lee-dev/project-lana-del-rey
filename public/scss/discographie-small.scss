@@ -1,0 +1,37 @@
+@import "common";
+#body__container {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  height: 100%;
+}
+@media screen and (max-width: 767px) {
+
+  header {
+    .nav__menu.active {
+      padding: 0 !important;
+    }
+  }
+
+  section {
+    .disco-card {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a .btn_cta {
+      font-size: $font-micro !important;
+      margin: $margin !important;
+      padding: $padding !important;
+      margin-top: $margin * 2 !important;
+
+      img {
+        margin-right: $margin - 5 !important;
+        width: 20px !important;
+      }
+    }
+
+  }
+}
+

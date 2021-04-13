@@ -1,0 +1,11 @@
+@import "common";
+#body__container {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  height: 100%;
+}
+@media screen and (max-width: 767px) {
+  .nav__menu.active {
+    padding: 0;
+  }
+}

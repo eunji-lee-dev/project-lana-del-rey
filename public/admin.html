@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+
+    <style>
+
+        .body__container {
+            text-align: center;
+        }
+
+        button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        button.green {
+            background-color: #4CAF50;
+        }
+
+        button.red {
+            background-color: #f44336;
+        }
+
+        .body__container .auth-out {
+            font-size: 80px;
+        }
+
+        .body__container .auth-in {
+            display: none;
+            font-size: 80px;
+        }
+
+        .body__container .auth-in.active {
+            display: block;
+        }
+
+        .body__container .admin {
+            display: none;
+        }
+
+        .body__container .admin.active {
+            display: block;
+        }
+
+        .result {
+            display: none;
+        }
+        .result.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="body__container">
+    <div>
+        <div>
+            <span class="auth-out">Connectez-vous</span>
+            <span class="auth-in">Bienvenue admin !</span>
+        </div>
+        <button id="btn-login">Login</button>
+    </div>
+
+    <div class="admin">
+        <label for="localisationbox">Localisation : </label><input id="localisationbox" type="text"></input> <br><br>
+        <label for="eventidbox">Event Id : </label><input id="eventidbox" type="text"></input> <br><br>
+        <label for="stadebox">Stade : </label> <input id="stadebox" type="text"></input> <br><br>
+        <label for="datebox">Date : </label><input id="datebox" type="text"></input> <br><br>
+        <br> <br>
+        <button id="insert">INSERT</button>
+        <button id="select" class="green">SELECT</button>
+        <button id="update" >UPDATE</button>
+        <button id="delete" class="red">DELETE</button>
+    </div>
+</div>
+
+
+<!--Firebase Libraries-->
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+
+<script id="MainScript">
+
+    let btnLogin = document.querySelector('#btn-login');
+    let admin = document.querySelector('.admin');
+    let authStateOut = document.querySelector('.auth-out');
+    let authStateIn = document.querySelector('.auth-in');
+    let btnResult = document.querySelector('.green');
+
+
+
+    let firebaseConfig = {
+        apiKey: "AIzaSyDi1BiJG8uOJOgRk_T4L1ZWB1Hp17J_vRM",
+        authDomain: "project-lana-del-rey-gb.firebaseapp.com",
+        databaseURL: "https://project-lana-del-rey-gb-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "project-lana-del-rey-gb",
+        storageBucket: "project-lana-del-rey-gb.appspot.com",
+        messagingSenderId: "1080566456522",
+        appId: "1:1080566456522:web:7df0188f544bd538ad1433"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    let provider = new firebase.auth.GoogleAuthProvider();
+
+    btnLogin.addEventListener('click', function () {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            admin.classList.toggle('active');
+            authStateOut.remove();
+            authStateIn.classList.toggle('active');
+            btnLogin.remove();
+        }).catch(function (error) {
+            alert(error.message)
+        });
+    });
+
+
+    // Ready Data
+    let localisationV, eventIdV, stadeV, dateV;
+    function Ready() {
+        localisationV = document.getElementById('localisationbox').value;
+        eventIdV = document.getElementById('eventidbox').value;
+        stadeV = document.getElementById('stadebox').value;
+        dateV = document.getElementById('datebox').value;
+    }
+
+    // Insert Process
+    document.getElementById('insert').onclick = function() {
+        Ready();
+        firebase.database().ref('tour/'+ eventIdV).set({
+            NameOfEventTour: localisationV,
+            EventId: eventIdV,
+            Stade: stadeV,
+            DateOfEvent: dateV
+        });
+    }
+
+    // Select Process
+    document.getElementById("select").onclick = function() {
+        Ready();
+        firebase.database().ref('tour/'+ eventIdV).on('value', function(snapshot){
+            document.getElementById('localisationbox').value= snapshot.val().NameOfEventTour;
+            document.getElementById('stadebox').value= snapshot.val().Stade;
+            document.getElementById('datebox').value= snapshot.val().DateOfEvent
+        });
+    }
+
+    // Update Process
+    document.getElementById('update').onclick = function() {
+        Ready();
+        firebase.database().ref('tour/'+ eventIdV).update({
+            NameOfEventTour: localisationV,
+            Stade: stadeV,
+            DateOfEvent: dateV
+        });
+    }
+
+    // Deletion Process
+    document.getElementById('delete').onclick = function() {
+        Ready();
+        firebase.database().ref('tour/'+ eventIdV).remove();
+    }
+
+    function getTours() {
+        let tourRef = firebase.database().ref('tour/');
+        tourRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            console.log(data);
+        });
+    }
+
+    getTours();
+
+    // Get all
+    function displayTours() {
+        let tourRef = firebase.database().ref('tour/');
+        tourRef.on('value', (snapshot) => {
+            let data = snapshot.val();
+            console.log("OBJECT", data);
+            console.log('ICI DATA', data[2]);
+            const data2 = JSON.stringify(data[2]);
+            const dataDateOfEvent = JSON.stringify(data2);
+            console.log(data2);
+            console.log(dataDateOfEvent);
+            // Traitement réponse Tour Generate
+            let divTourContainer = document.createElement('div');
+            divTourContainer.classList.add('result');
+            btnResult.addEventListener('click', function () {
+                btnResult.classList.toggle('active');
+            });
+            divTourContainer.innerHTML = `<h5>${data2}</h5>`;
+            document.body.appendChild(divTourContainer);
+            console.log(divTourContainer);
+        });
+    }
+
+
+    displayTours();
+
+</script>
+
+</body>
+</html>

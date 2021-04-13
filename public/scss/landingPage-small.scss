@@ -1,0 +1,53 @@
+@import "common";
+#body__container {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  height: 100vh;
+}
+@media screen and (max-width: 767px) {
+  header {
+    height: 20%;
+    position : inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+
+
+    .logo {
+      width: 110px;
+      position : inherit;
+      left: auto;
+      top: auto;
+      transform: unset;
+    }
+
+    .social_media {
+      position : inherit;
+      right: auto;
+      top: auto;
+      transform: unset;
+      margin-top: $margin / 2;
+
+      a img {
+        width: 15px;
+      }
+    }
+  }
+
+  .landing_page {
+    height: 80%;
+
+    .title {
+      top: 50%;
+      left: 50%;
+      font-size: $font-micro;
+    }
+    a .btn_go_home {
+      width: 100px;
+      height: 30px;
+      font-size: $font-micro;
+    }
+  }
+}

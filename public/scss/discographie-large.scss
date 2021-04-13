@@ -1,0 +1,90 @@
+@import "common";
+
+#body__container {
+  background-color: $blue-dark-color;
+
+  //main section
+  section {
+    text-align: center;
+    padding: $padding * 3;
+
+    h2 {
+      font-size: $font-large + 20;
+      color: $white-color;
+      text-transform: uppercase;
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+      margin-top: $margin * 5;
+      margin-bottom: $margin * 5;
+    }
+
+    .disco-card  {
+      display: flex;
+      justify-content: space-around;
+      margin-right: $margin * 2;
+      margin-left: $margin * 2;
+      img{
+        width: 300px;
+        height: 300px;
+        padding: $padding * 2;
+      }
+
+    }
+
+    a {
+      display: inline-block;
+      text-align: center;
+      .btn_cta {
+        display: flex;
+        align-items: center;
+        font-family: brother-xl, sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        border: none;
+        font-size: $font-medium;
+        text-align: center;
+        background-color: $green-color;
+        color: $white-color;
+        text-transform: uppercase;
+        margin: $margin * 3;
+        padding: $padding * 2;
+        border-radius: 40px;
+
+        img {
+          margin-right: $margin;
+          width: 35px;
+        }
+
+        &:hover {
+          background-color: #67fa93;
+        }
+      }
+    }
+
+    .logo {
+      display: block;
+      width: 50%;
+      margin: $margin * 5;
+      margin: 0 auto;
+    }
+  }
+  // footer
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    height: 20%;
+    background-color: $grey-footer-color;
+    padding: $padding;
+
+    .footer__socialMedia {
+      a img {
+        width: 25px;
+        margin: $margin;
+      }
+    }
+  }
+}
+
+
+
+

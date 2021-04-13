@@ -1,0 +1,227 @@
+#body__container {
+  font-family: "Raleway", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #f0f4f5;
+}
+a:visited {
+  color: #f0f4f5;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #010118;
+  padding: 10px;
+}
+header .logo {
+  width: 200px;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+header nav .nav__menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+header nav .nav__menu li {
+  display: flex;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: 0.3s ease-out;
+}
+header nav .nav__menu li:hover {
+  background-color: #f0f4f5;
+  border-radius: 3px;
+}
+header nav .nav__menu li .menu_link {
+  padding: 10px;
+}
+header nav .nav__menu li .menu_link:hover {
+  color: #010118;
+}
+header nav .nav__socialMedia {
+  display: flex;
+  align-items: center;
+}
+header nav .nav__socialMedia a img {
+  width: 25px;
+  margin: 10px;
+}
+header nav .nav__hamburger {
+  display: none;
+  position: absolute;
+  top: 13px;
+  right: 18px;
+  margin: auto;
+  width: 20px;
+  height: 13px;
+  cursor: pointer;
+}
+header nav .nav__hamburger .hamburger-menu,
+header nav .nav__hamburger .hamburger-menu:after,
+header nav .nav__hamburger .hamburger-menu:before {
+  width: 20px;
+  height: 3px;
+}
+header nav .nav__hamburger .hamburger-menu {
+  position: relative;
+  transform: translateY(5px);
+  background: white;
+  transition: all 0ms 300ms;
+}
+header nav .nav__hamburger .hamburger-menu.animate {
+  background: rgba(255, 255, 255, 0);
+}
+header nav .nav__hamburger .hamburger-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  background: white;
+  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+header nav .nav__hamburger .hamburger-menu:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  background: white;
+  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+header nav .nav__hamburger .hamburger-menu.animate:after {
+  top: 0;
+  transform: rotate(45deg);
+  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+header nav .nav__hamburger .hamburger-menu.animate:before {
+  bottom: 0;
+  transform: rotate(-45deg);
+  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  header .logo {
+    width: 130px;
+  }
+  header nav .nav__menu li .menu_link {
+    font-size: 16px;
+  }
+  header nav .nav__socialMedia a img {
+    width: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+  }
+  header .logo {
+    width: 80px;
+    align-items: start;
+    padding: 10px;
+  }
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  header nav .nav__menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  header nav .nav__menu li {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+  }
+  header nav .nav__menu li:hover {
+    border-radius: 0;
+  }
+  header nav .nav__menu li .menu_link {
+    width: 100%;
+    font-weight: normal;
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    border-bottom: 1px solid #1A1A1A;
+  }
+  header nav .nav__menu li .menu_link:first-child {
+    border-top: 1px solid #1A1A1A;
+  }
+  header nav .nav__socialMedia {
+    display: none;
+  }
+  header nav .nav__socialMedia a img {
+    width: 21px;
+    margin: 10px;
+  }
+  header nav .nav__hamburger {
+    display: block;
+  }
+  header nav .nav__menu.active,
+header nav .nav__socialMedia.active {
+    display: flex;
+  }
+}
+#body__container {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    height: 20%;
+    position: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+  }
+  header .logo {
+    width: 110px;
+    position: inherit;
+    left: auto;
+    top: auto;
+    transform: unset;
+  }
+  header .social_media {
+    position: inherit;
+    right: auto;
+    top: auto;
+    transform: unset;
+    margin-top: 5px;
+  }
+  header .social_media a img {
+    width: 15px;
+  }
+
+  .landing_page {
+    height: 80%;
+  }
+  .landing_page a .btn_go_home {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=landingPage-accueil-small.css.map */

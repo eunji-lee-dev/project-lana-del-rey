@@ -1,0 +1,62 @@
+@import "common";
+#body__container {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  height: 100%;
+}
+@media screen and (max-width: 767px) {
+  h2 {
+    font-size: $font-large;
+  }
+  .second {
+    p {
+      font-size: $font-small;
+    }
+
+    .second__newAlbum {
+      display: block;
+
+      .left span {
+        font-size: $font-small;
+      }
+
+      .right {
+        text-align: center;
+
+        img {
+          width: 80%;
+          padding-left: 0;
+          padding: $padding * 2;
+        }
+      }
+
+    }
+  }
+
+  .third {
+    a {
+      margin-top: $margin;
+    }
+    .btn_cta {
+      font-size: $font-micro;
+      margin: $margin;
+      padding: $padding;
+
+      img {
+        margin-right: $margin - 5;
+        width: 20px;
+      }
+    }
+  }
+
+  footer {
+    a img {
+      width: $font-small + 5;
+      margin: $margin;
+    }
+  }
+
+  .nav__menu.active {
+    padding: 0;
+  }
+}

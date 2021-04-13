@@ -1,0 +1,259 @@
+@import "common";
+
+#body__container {
+  background-color: $blue-dark-color;
+}
+
+h2 {
+  font-size: $font-large + 20;
+  color: $white-color;
+  text-transform: uppercase;
+  margin-bottom: $margin * 2;
+  font-family: 'Oswald', sans-serif;
+}
+
+//first section
+.first {
+  position: relative;
+
+  img {
+    background-position: center;
+    width: 100%;
+  }
+
+  .first__scrollBtn {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    text-align: center;
+
+    p {
+      text-transform: uppercase;
+    }
+
+    @-webkit-keyframes ani-mouse {
+      0% {
+        opacity: 1;
+        top: 29%;
+      }
+      15% {
+        opacity: 1;
+        top: 50%;
+      }
+      50% {
+        opacity: 0;
+        top: 50%;
+      }
+      100% {
+        opacity: 0;
+        top: 29%;
+      }
+    }
+    @-moz-keyframes ani-mouse {
+      0% {
+        opacity: 1;
+        top: 29%;
+      }
+      15% {
+        opacity: 1;
+        top: 50%;
+      }
+      50% {
+        opacity: 0;
+        top: 50%;
+      }
+      100% {
+        opacity: 0;
+        top: 29%;
+      }
+    }
+    @keyframes ani-mouse {
+      0% {
+        opacity: 1;
+        top: 29%;
+      }
+      15% {
+        opacity: 1;
+        top: 50%;
+      }
+      50% {
+        opacity: 0;
+        top: 50%;
+      }
+      100% {
+        opacity: 0;
+        top: 29%;
+      }
+    }
+
+    .mouse {
+      position: relative;
+      display: block;
+      width: 35px;
+      height: 55px;
+      margin: 0 auto 20px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      border: 3px solid white;
+      border-radius: 23px;
+    }
+
+    .mouse > * {
+      position: absolute;
+      display: block;
+      top: 29%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin: -4px 0 0 -4px;
+      background: white;
+      border-radius: 50%;
+      -webkit-animation: ani-mouse 2.5s linear infinite;
+      -moz-animation: ani-mouse 2.5s linear infinite;
+      animation: ani-mouse 2.5s linear infinite;
+    }
+  }
+  .first__scrollBtn > * {
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #7f8c8d;
+    color: #ffffff;
+    letter-spacing: 2px;
+  }
+  .first__scrollBtn > *:hover,
+  .first__scrollBtn > *:focus,
+  .first__scrollBtn > *.active {
+    color: #ffffff;
+  }
+  .first__scrollBtn > *:hover,
+  .first__scrollBtn > *:focus,
+  .first__scrollBtn > *:active,
+  .first__scrollBtn > *.active {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+}
+
+// second section
+.second {
+  padding: $padding * 3;
+  margin-top: $margin * 2;
+  text-align: center;
+  p {
+    font-size: $font-medium;
+    color: $white-color;
+    margin-bottom: $margin * 2;
+  }
+
+  .second__aboutLana {
+    margin-bottom: $margin * 4;
+  }
+
+  .second__newAlbum {
+    display: flex;
+    flex-direction: column;
+
+    .left span {
+      color: $white-color;
+      font-size: $font-medium;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .right img {
+        width: 60%;
+    }
+  }
+}
+
+// third section
+.third {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $grey-dark-color;
+  text-align: center;
+  padding-top: $padding * 4;
+  padding-bottom: $padding * 4;
+
+  h2 {
+    text-align: center;
+    padding-right: $padding * 3;
+    padding-left: $padding * 3;
+    padding-bottom: $padding * 3;
+  }
+
+  img:nth-child(2) {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  img:nth-child(3) {
+    width: 55%;
+    margin: 0 auto;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .btn_cta {
+    display: flex;
+    align-items: center;
+    font-family: brother-xl, sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    border: none;
+    font-size: $font-medium;
+    text-align: center;
+    background-color: $green-color;
+    color: $white-color;
+    text-transform: uppercase;
+    margin: $margin * 3;
+    padding: $padding * 2;
+    border-radius: 40px;
+    img {
+      margin-right: $margin;
+      width: 35px;
+    }
+    &:hover {
+      background-color: #67fa93;
+    }
+  }
+}
+
+.galerie {
+  text-align: center;
+  padding: $padding * 3;
+
+  h2 {
+    margin-bottom: $margin * 3;
+  }
+  .carousel {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+// footer
+footer {
+  display: flex;
+  justify-content: flex-end;
+  height: 20%;
+  background-color: $grey-footer-color;
+  padding: $padding;
+
+  .footer__socialMedia {
+    a img {
+      width: 25px;
+      margin: $margin;
+    }
+  }
+}
